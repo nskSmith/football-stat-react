@@ -1,0 +1,27 @@
+.DataTableItem-player {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    border-bottom: 2px;
+    border-color: azure;
+}
+
+.DataTableItem-player.p {
+    margin: 0;  
+}
+
+.DataTableItem-position {
+    width: 30px ;
+}
+
+.DataTableItem-name {
+
+}
+
+.DataTableItem-number {
+    text-align: right;
+    width: 20px;
+    padding-left: 5px;
+    padding-right: 5px; 
+}
