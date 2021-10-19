@@ -1,7 +1,7 @@
-import React from "react";
 import "./App.css";
 import "./index.css";
-import { DataTable } from "./components/DataTable/DataTable";
+import DataTable from "./components/DataTable/DataTable";
+import ChooseTeam from "./components/ChooseTeam/ChooseTeam";
 
 function App() {
   return (
@@ -17,6 +17,9 @@ function App() {
           SPORTMONKS.COM
         </a>
       </header>
+      <nav className="App-choose-team">
+        <ChooseTeam />
+      </nav>
       <main className="App-data-table">
         <DataTable />
       </main>

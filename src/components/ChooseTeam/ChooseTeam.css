@@ -1,0 +1,28 @@
+.ChooseTeam-div {
+    width: 45vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.ChooseTeam-input {
+    margin-left: 5px;
+    /* width:  ?????*/
+}
+
+.ChooseTeam-label {
+    width: auto;
+    flex-grow: 1;
+}
+
+
+.ChooseTeam-submitBtn {
+        
+}
+
+.ChooseTeam-div > p {
+    padding-left: 5px;
+    padding-right: 5px;
+}
