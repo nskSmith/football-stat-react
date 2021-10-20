@@ -16,9 +16,11 @@
 }
 
 .DataTable {
-  width: 65vw;
-  background: #61dafb;
-  padding: 5vh;
-  margin-left: auto;
-  margin-right: auto;
+
+}
+
+.DataTable-service-message {
+  height: 100vh;
+  text-align: center;
+  font-size: 40px;
 }
