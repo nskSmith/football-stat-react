@@ -1,60 +1,34 @@
 import { useEffect, useState } from "react";
 import "./DataTable.css";
 import DataTableItem from '../DataTableItem/DataTableItem'
-import {connect} from 'react-redux'
+import {connect, useSelector} from 'react-redux'
+import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { loadavg } from "os";
 
-const DataTable = ({ teamId }: any) => {
-  const token: String =
-    "ddBdib3AWXwtnbo18xA67V6ETp6TIMhDXAyqyHRSoaMl0sngoNb5oQZfbBao";
-
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [teamName, setTeamName] = useState("default Name")
-  const [teamLogo, setTeamLogo] = useState("path")
-  const [squad, setSquad] = useState([])
+const DataTable = () => {
+  const {team, isLoading}= useTypedSelector(state => state.teamState)
+  const [teamId, setTeamId] = useState(0)
+  const [isLoaded, setIsLoaded] = useState(true)
+  console.log('team inside component -',team);
   const [isError, setIsError] = useState(false)
 
-  const requestOptions = {
-    method: "GET",
-    redirect: "follow",
-  };  
+  // useEffect(() => {
+  //   console.log('team inside useEffect -',team);
+  //   // setTeamId(team.teamId)
+  //   //setIsLoaded(isLoading)
+  // }, [team])
 
-  useEffect(() => {
-    setIsLoaded(false)
-    setIsError(false)
-    if(teamId) {
-      fetch("https://soccer.sportmonks.com/api/v2.0/teams/" + teamId + "?include=squad.player&api_token=" + token, requestOptions as any)
-        .then((response) => response.json())
-        .then(
-          json_res => {
-            const data = json_res.data;
-            setIsLoaded(true)
-            setTeamName(data.name)
-            setTeamLogo(data.logo_path)
-            setSquad(data.squad.data)
-        })
-        .catch(
-          error => {
-            setIsLoaded(false)
-            setIsError(true)
-            console.log("error", error)
-            console.log('is error? - ',isError)
-            console.log('is loaded? - ', isLoaded)
-          }
-        );
-    }
-  }, [teamId])
-
-  if (isLoaded) {
+  if (!isLoading) {
     return (
       <div className="DataTable">
         <div className="DataTable-team">
-          <img className="teamLogo" src={teamLogo} alt={teamName} />
+          <img className="teamLogo" src={team.teamLogo} alt={team.teamName} />
           <div className="teamname">
-            {teamName} ({teamId})
+            {team.teamName} ({team.teamId})
           </div>
         </div>
         <div className="DataTable-items">
-          {squad.map(
+          {team.squad.map(
             (item: any) => <DataTableItem item={item} key={item.player_id}/>
           )}
         </div>
@@ -64,8 +38,7 @@ const DataTable = ({ teamId }: any) => {
       if(isError) {
         return <div className='DataTable-service-message error-message'>BACKEND ERROR</div>
       } else {
-          console.log('team ID ==== ', teamId);
-          if(teamId === 0) {
+          if(team.teamId === 0) {
             return <div className='DataTable-service-message'>Choose Team by using <strong>teamID</strong></div>
           } else { 
             return <div className='DataTable-service-message'>LOADING . . .</div>
@@ -74,11 +47,12 @@ const DataTable = ({ teamId }: any) => {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  return {
-    teamId: state.team.teamID
-  }
-}
+// const mapStateToProps = (state: any) => {
+//   return {
+//     teamId: state.team.teamID
+//   }
+// }
 
-export default connect(mapStateToProps, null)(DataTable)
+export default DataTable
+// export default connect(mapStateToProps, null)(DataTable)
 
