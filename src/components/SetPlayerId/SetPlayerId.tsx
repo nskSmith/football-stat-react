@@ -1,36 +1,35 @@
-import { throws } from "assert";
-import React, { useEffect, useState } from "react";
-import "./SetTeamId.css";
-import { connect, useDispatch } from 'react-redux'
+import { useState } from "react";
+import "./SetPlayerId.css";
+import { useDispatch } from 'react-redux'
 import { teamActionCreators } from "../../store/reducers/team/teamActions";
 
-const SetTeamId = () => {
-    const [teamID, setTeamId] = useState('')
+const SetPlayerId = () => {
+    const [playerID, setPlayerId] = useState('')
     
     const dispatch = useDispatch()
 
 
     const submitHandler = (event: any) => {
         event.preventDefault()
-        console.log(Number(teamID))
-        dispatch(teamActionCreators.getTeamByTeamId(Number(teamID)))
-        setTeamId('')
+        console.log(Number(playerID))
+        dispatch(teamActionCreators.getTeamByTeamId(Number(playerID)))
+        setPlayerId('')
     }
 
     const onChangeHandler = (event: any) => {
         const value = event.target.value
-        setTeamId(value)
+        setPlayerId(value)
     }
 
     return (
         <form onSubmit={submitHandler}>
             <div className="ChooseTeam-div">
-                <span className='ChooseTeam-label'>TEAM ID </span>
+                <span className='ChooseTeam-label'>PLAYER ID </span>
                 <input 
                         className='ChooseTeam-input' 
                         type="text" 
                         onChange={onChangeHandler}
-                        value={teamID}
+                        value={playerID}
                 />
                 <button 
                     className="ChooseTeam-submitBtn" 
@@ -48,5 +47,5 @@ const SetTeamId = () => {
 //     chooseTeam
 // }
   
-export default SetTeamId
+export default SetPlayerId
 // export default connect(null, mapDispatchToProps)(SetTeamId)

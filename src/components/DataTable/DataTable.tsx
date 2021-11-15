@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./DataTable.css";
 import DataTableItem from '../DataTableItem/DataTableItem'
-import {connect, useSelector} from 'react-redux'
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { loadavg } from "os";
 
 const DataTable = () => {
   const {team, isLoading}= useTypedSelector(state => state.teamState)
@@ -28,9 +26,15 @@ const DataTable = () => {
           </div>
         </div>
         <div className="DataTable-items">
+          <div className="DataTable-header">
+            <p className='DataTableItem-position'>position</p>
+            <p className='DataTableItem-number'>number</p>
+            <p className='DataTableItem-name'>player</p>
+            <p className='DataTableItem-player-id'>ID</p>
+          </div>
           {team.squad.map(
             (item: any) => <DataTableItem item={item} key={item.player_id}/>
-          )}
+           )}
         </div>
       </div>
     );

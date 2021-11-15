@@ -1,17 +1,19 @@
 .App-header {
   background-color: #282c34;
-  padding-bottom: 3vh;
-  min-height: 20vh;
+  /* padding-bottom: 3vh; */
+  min-height: 5vh;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(136, 136, 136);
+  font-size: 15px;
+  /* font-size: calc(10px + 2vmin); */
+  color: #666666;
 }
 
 .App-link {
-  color: #61dafb;
+  margin-left: 5px;
+  color: #5497aa;
 }
 
 .App-data-table {
@@ -26,9 +28,15 @@
   padding: 3vh;
 }
 
+.App-tabs {
+  width: 75vw;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding: 5vw; */
+}
+
 .App {
-  
-  background: #c1f6ff;
+    background: #c1f6ff;
 }
 
 label {

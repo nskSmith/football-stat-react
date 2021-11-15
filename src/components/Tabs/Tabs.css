@@ -1,0 +1,22 @@
+.Tabs {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.Tabs-button {
+    height: 80px;
+    font-size: 22px;
+    width:100%;
+}
+
+.Tabs-link {
+    flex-grow: 1;
+}
+
+.Tabs-button:hover {
+    background-color: #265461;
+    color: #c1f6ff ;
+}

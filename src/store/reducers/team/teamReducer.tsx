@@ -7,7 +7,7 @@ const initialState: TeamState = {
         teamLogo: '',
         squad: [{}]
     },
-    isLoading: false
+    isLoading: true
 }
 
 export const teamReducer = (state = initialState, action: TeamAction) : TeamState => {

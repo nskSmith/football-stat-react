@@ -19,6 +19,8 @@ export const teamActionCreators = {
     }),
     getTeamByTeamId: (teamId: number) => async (dispatch: AppDispatch) =>{
         try {
+            console.log('start_loading');
+            
             dispatch(teamActionCreators.setIsLoading(true))
             const response = await fetch("https://soccer.sportmonks.com/api/v2.0/teams/" + teamId + "?include=squad.player&api_token=" + token, requestOptions as any)
             .then( resp => resp.json())
@@ -30,8 +32,8 @@ export const teamActionCreators = {
                 squad: response.squad.data
             }
             console.log('team is loading')
-            dispatch(teamActionCreators.setIsLoading(false))
             dispatch(teamActionCreators.getTeam(team))
+            dispatch(teamActionCreators.setIsLoading(false))
         } catch (error) {
         }
     }
