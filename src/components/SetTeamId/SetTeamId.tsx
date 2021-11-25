@@ -1,15 +1,19 @@
 import { throws } from "assert";
 import React, { useEffect, useState } from "react";
-import "./ChooseTeam.css";
-import { connect } from 'react-redux'
-import { chooseTeam } from "../../store/actions/actions";
+import "./SetTeamId.css";
+import { connect, useDispatch } from 'react-redux'
+import { teamActionCreators } from "../../store/reducers/team/teamActions";
 
-const ChooseTeam = ({chooseTeam} : any) => {
+const SetTeamId = () => {
     const [teamID, setTeamId] = useState('')
     
+    const dispatch = useDispatch()
+
+
     const submitHandler = (event: any) => {
         event.preventDefault()
-        chooseTeam(Number(teamID))
+        console.log(Number(teamID))
+        dispatch(teamActionCreators.getTeamByTeamId(Number(teamID)))
         setTeamId('')
     }
 
@@ -29,7 +33,6 @@ const ChooseTeam = ({chooseTeam} : any) => {
                         value={teamID}
                     />
                 </label>
-                
                 <button 
                     className="ChooseTeam-submitBtn" 
                     type='submit'
@@ -42,8 +45,9 @@ const ChooseTeam = ({chooseTeam} : any) => {
     )
 }
 
-const  mapDispatchToProps  = {
-    chooseTeam
-}
+// const  mapDispatchToProps  = {
+//     chooseTeam
+// }
   
-export default connect(null, mapDispatchToProps)(ChooseTeam)
+export default SetTeamId
+// export default connect(null, mapDispatchToProps)(SetTeamId)

@@ -1,1 +1,2 @@
 export const CHOOSE_TEAM = 'CHOOSE_TEAM'
+export const GET_TEAM_BY_TEAM_ID = 'GET_TEAM_BY_TEAM_ID'
