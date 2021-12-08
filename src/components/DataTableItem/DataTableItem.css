@@ -2,26 +2,29 @@
     flex-grow: 1;
     display: flex;
     flex-wrap: nowrap;
-    margin: 0;
-    border-bottom: 2px;
+    /* margin: 0; */
+    border-bottom-style: solid;
     border-color: azure;
 }
 
-.DataTableItem-player.p {
-    margin: 0;  
+.DataTableItem-player > p {
+    padding-left: 5px;
+    padding-right: 5px; 
 }
 
 .DataTableItem-position {
-    width: 30px ;
+    width: 70px ;
 }
 
 .DataTableItem-name {
+    flex-grow: 1;
+}
 
+.DataTableItem-player-id {
+    width: 70px;
+    color: #ffffff;
 }
 
 .DataTableItem-number {
-    text-align: right;
-    width: 20px;
-    padding-left: 5px;
-    padding-right: 5px; 
+    width: 70px;
 }
