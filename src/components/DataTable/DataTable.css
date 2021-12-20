@@ -6,13 +6,18 @@
   margin: auto;
 }
 
-.teamname {
+.DataTable-teamname {
   font-size: calc(22px + 2vmin);
 }
 
 .DataTable {
   color: #265461;
 }
+
+.DataTable-teamLogo {
+  height: 150px;
+}
+
 
 .DataTable-team {
   text-align: center;

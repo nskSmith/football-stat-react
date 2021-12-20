@@ -20,8 +20,8 @@ const DataTable = () => {
     return (
       <div className="DataTable">
         <div className="DataTable-team">
-          <img className="teamLogo" src={team.teamLogo} alt={team.teamName} />
-          <div className="teamname">
+          <p className="DataTable-teamLogo"><img src={team.teamLogo} alt={team.teamName} /></p>
+          <div className="DataTable-teamname">
             {team.teamName} ({team.teamId})
           </div>
         </div>

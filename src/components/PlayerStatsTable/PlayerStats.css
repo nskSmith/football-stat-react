@@ -1,0 +1,30 @@
+.PlayerStats-stats {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    /* margin: 0; */
+    border-bottom-style: solid;
+    border-color: azure;
+}
+
+.PlayerStats-stats > p {
+    padding-left: 5px;
+    padding-right: 5px; 
+}
+
+.PlayerStats-season {
+    width: 70px ;
+}
+
+.PlayerStats-team {
+    width: 70px ;
+    margin-right: 100px;
+}
+
+.PlayerStats-league {
+    width: 70px ;
+}
+
+.PlayerStats-value {
+    width: 70px ;
+}
