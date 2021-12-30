@@ -1,7 +1,6 @@
-import { throws } from "assert";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import "./SetTeamId.css";
-import { connect, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { teamActionCreators } from "../../store/reducers/team/teamActions";
 
 const SetTeamId = () => {

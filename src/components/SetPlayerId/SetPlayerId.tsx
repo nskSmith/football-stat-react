@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SetPlayerId.css";
 import { useDispatch } from 'react-redux'
-import { teamActionCreators } from "../../store/reducers/team/teamActions";
+import { playerStatsActionCreators } from "../../store/reducers/playerStats/playerStatsActions";
 
 const SetPlayerId = () => {
     const [playerID, setPlayerId] = useState('')
@@ -12,7 +12,7 @@ const SetPlayerId = () => {
     const submitHandler = (event: any) => {
         event.preventDefault()
         console.log(Number(playerID))
-        dispatch(teamActionCreators.getTeamByTeamId(Number(playerID)))
+        dispatch(playerStatsActionCreators.getPlayerStatsByPlayerId(Number(playerID)))
         setPlayerId('')
     }
 
